@@ -46,9 +46,9 @@ Feature: DataTable Functionalty
     Examples:
       | ExamName    | AcademicPeriodOption | GradeLevelOption | documentTypeOption |
       | Math exam   | 0                    | whiteN           | 1                  |
-      | IT exam     | 2018-2019            | 3                | 2                  |
-      | Oracle exam | 0                    | 2                | 3                  |
-      | Math exam   | 1                    | 4                | 3                  |
+#      | IT exam     | 2018-2019            | 3                | 2                  |
+#      | Oracle exam | 0                    | 2                | 3                  |
+#      | Math exam   | 1                    | 4                | 3                  |
 
 
 

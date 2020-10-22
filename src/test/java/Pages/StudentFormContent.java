@@ -17,7 +17,7 @@ public class StudentFormContent extends _Parent {
 //        PageFactory.initElements(driver, this);
 //    }
     @FindBy(xpath = "//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
-    private WebElement addButton; //sorun olursa bunu kullan
+    private WebElement addButton;
 
     @FindBy(xpath = "//ms-text-field[@formcontrolname='firstName']/input")
     private WebElement firstName;
@@ -218,7 +218,7 @@ public class StudentFormContent extends _Parent {
                 break;
 
         }
-        beklet(50);
+        beklet(200);
         selectOptionByString(myList, secenek);
     }
 }

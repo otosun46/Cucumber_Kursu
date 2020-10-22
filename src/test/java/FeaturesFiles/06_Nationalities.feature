@@ -7,15 +7,15 @@ Feature: Nationalities functionality
     And Navigate to Nationalities page
 
   Scenario: Create Nationalities
-    Then Create a Nationalities "cayish"
+    Then Create a Nationalities "cayish1"
     Then Success message shuld be diplayed
 
   Scenario: Edit Nationalities
-    When User edit the "cayish" to "cafeish"
+    When User edit the "cayish1" to "cafeish1"
     Then Success message shuld be diplayed
 
   Scenario: Delete Nationalities
-    When User delete the "cafeish"
+    When User delete the "cafeish1"
     Then Success message shuld be diplayed
 
 

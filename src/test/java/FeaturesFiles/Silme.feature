@@ -29,5 +29,5 @@ Feature: Calisma icin girilen kayitlari siler
     Examples:
       | Sections     |
       | citizenships |
-#      | nationality  |
-#      | country      |
+      | nationality  |
+      | country      |

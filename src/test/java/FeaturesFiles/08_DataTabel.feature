@@ -4,7 +4,7 @@ Feature: DataTable Functionalty
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-  @Regression
+
   Scenario: Create Country
     And Click on the element in the left class
       | setupOne   |
@@ -18,7 +18,7 @@ Feature: DataTable Functionalty
     And Click on the element in the content class
       | saveButton |
     Then Success message shuld be diplayed
-  @Regression
+
   Scenario: Create a Nationalties
     And Click on the element in the left class
       | setupOne    |
@@ -27,12 +27,12 @@ Feature: DataTable Functionalty
     Then Click on the element in the content class
       | addButton |
     When User sending the keys in the dialog content class
-      | nameInput | caysh1 |
+      | nameInput | caysh2 |
 
     And Click on the element in the content class
       | saveButton |
     Then Success message shuld be diplayed
-  @Regression
+
   Scenario: Create a Fee
     And Click on the element in the left class
       | setupOne   |
@@ -41,8 +41,8 @@ Feature: DataTable Functionalty
     Then Click on the element in the content class
       | addButton |
     When User sending the keys in the dialog content class
-      | nameInput            | Benim |
-      | codeInput            | Bn  |
+      | nameInput            | Senin |
+      | codeInput            | Sn  |
       | integrationCodeInput | TE |
       | priorityInput        | 12500|
 

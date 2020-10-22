@@ -25,7 +25,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
         features = {"src/test/java/FeaturesFiles"},
         glue = {"StepDefinitions"},
         dryRun = false,
-        plugin = {
+        plugin = {       // basit rapor olusturan plagin
                 "html:target/cucumber-report",
                 "json:target/cucumber.json"
         }

@@ -14,7 +14,7 @@ Feature: Student add functionality
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-
+  @Regression
   Scenario: Add students
     When Click on the element in the left class
       | student  |
