@@ -97,7 +97,6 @@ public class StudentFormContent extends _Parent {
     @FindBy(css = "ms-save-button>button")
     private WebElement saveButton;
 
-
     @FindAll({
             @FindBy(css = "mat-option[role='option']")
     })
@@ -108,10 +107,8 @@ public class StudentFormContent extends _Parent {
     })
     private List<WebElement> tabOption;
 
-
-    public void findElementAndClickFunction(String elementName) {
-
-        switch (elementName) {
+    public WebElement findWebElement(String webElementName) {
+        switch (webElementName) {
             case "addButton":
                 myElement = addButton;
                 break;
@@ -160,13 +157,6 @@ public class StudentFormContent extends _Parent {
             case "representativeTab":
                 myElement = representativeTab;
                 break;
-        }
-        clickFunction(myElement);
-    }
-
-    public void findElementAndSendKeysFunction(String ElementName, String value) {
-
-        switch (ElementName) {
             case "firstName":
                 myElement = firstName;
                 break;
@@ -175,9 +165,6 @@ public class StudentFormContent extends _Parent {
                 break;
             case "studentId":
                 myElement = studentId;
-                break;
-            case "gender":
-                myElement = gender;
                 break;
             case "mobilePhone":
                 myElement = mobilePhone;
@@ -204,21 +191,55 @@ public class StudentFormContent extends _Parent {
                 myElement = representativePhone;
                 break;
         }
-        beklet(50);
-        sendKeysFunction(myElement, value);
+        return myElement;
     }
 
-    public void findElementAndSelectOption(String listName, String secenek) {
-        switch (listName) {
+    /**
+     * Parametre olarak ismi girilen WebElementListi dondurur.
+     *
+     * @param webElementListName
+     * @return
+     */
+    public List<WebElement> findWebElementList(String webElementListName) {
+        switch (webElementListName) {
             case "option":
                 myList = option;
                 break;
             case "tabOption":
                 myList = tabOption;
                 break;
-
         }
-        beklet(200);
-        selectOptionByString(myList, secenek);
+        return myList;
+    }
+
+    /**
+     * Bu metod steps classtan calistirilacak parametre olarak string olarak tiklanacak WebElementin ismini alir.
+     *
+     * @param element
+     */
+    public void findElementAndClickFunction(String element) {
+        clickFunction(findWebElement(element));
+    }
+
+    /**
+     * Parametre olarak ismi gonderilen WebElementi bulur ve value parametresini secilen WebElemente gonderir.
+     *
+     * @param element
+     * @param value
+     */
+    public void findElementAndSendKeysFunction(String element, String value) {
+        sendKeysFunction(findWebElement(element), value);
+    }
+
+    /**
+     * Bu metod steps classindan cagrilir.
+     * Parametre olarak seceneklerin oldugu WebElementListesinin adini ve secim kriterini string olarak alir.
+     * Secim parametresi sayi olursa index olarak degerlendirilir ve o indexli WebElement secilir.
+     * Parametre sayi degilse WebElementin texti ile karsilastirilir ve kapsayan WebElement secilir.
+     * @param listName
+     * @param secenek
+     */
+    public void findElementAndSelectOption(String listName, String secenek) {
+        selectOptionByString(findWebElementList(listName), secenek);
     }
 }

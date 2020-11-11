@@ -36,19 +36,15 @@ public class FormContent extends _Parent {
     @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
     private WebElement nameInput;
 
-    @FindAll(
-            {
+    @FindAll({
                     @FindBy(xpath = "//span[@class='mat-option-text']")
-            }
-    )
-    public List<WebElement> selectOptions;
+            })
+    private List<WebElement> selectOptions;
 
-    @FindAll(
-            {
+    @FindAll({
                     @FindBy(css = "td[role=gridcell]")
-            }
-    )
-    public List<WebElement> selectDayOfMondy;
+            })
+    private List<WebElement> selectDayOfMondy;
 
     @FindBy(xpath = "(//mat-select[@role='combobox'])[1]")
     private WebElement academicPeriod;
@@ -92,14 +88,9 @@ public class FormContent extends _Parent {
     @FindBy(css = "input[name='datePickerControl']")
     private WebElement regStartInput1;
 
+    public WebElement findWebElement(String webElementName) {
 
-
-
-
-
-    public void findElementAndClickFunction(String elementName) {
-
-        switch (elementName) {
+        switch (webElementName) {
             case "entranceExams":
                 myElement = entranceExams;
                 break;
@@ -148,55 +139,64 @@ public class FormContent extends _Parent {
             case "endOpenCloseCalender":
                 myElement = endOpenCloseCalender;
                 break;
-        }
-        beklet(500);
-        clickFunction(myElement);
-    }
-
-    public void findElementAndSendKeysFunction(String ElementName, String value) {
-        switch (ElementName) {
             case "nameInput":
                 myElement = nameInput;
                 break;
-            case "regStartInput":
-                myElement = regStartInput;
-                break;
-            case "regEndInput":
-                myElement = regEndInput;
-                break;
-            case "regEnd":
-                myElement = regEnd;
-                break;
+
             case "searchName":
                 myElement = searchName;
                 break;
-            case "regStartInput1":
-                myElement = regStartInput1;
-                break;
         }
-        beklet(500);
-        sendKeysFunction(myElement, value);
+        beklet(200);
+        return myElement;
     }
 
-    public void findElementAndSelectOption(String listName, String secenek) {
-        switch (listName) {
+    /**
+     * Parametre olarak ismi girilen WebElementListi dondurur.
+     *
+     * @param webElementListName
+     * @return
+     */
+    public List<WebElement> findWebElementList(String webElementListName) {
+        switch (webElementListName) {
             case "selectOptions":
                 myList = selectOptions;
                 break;
             case "selectDayOfMondy":
                 myList = selectDayOfMondy;
                 break;
-
         }
-        beklet(100);
-        selectOptionByString(myList, secenek);
-
+        return myList;
     }
-    public void switchToWindow(){
-        Actions builder=new Actions(driver);
-        Action build=builder.keyDown(Keys.TAB).build();
-        beklet(1000);
-        build.perform();
-
+    /**
+     * Bu metod steps classtan calistirilacak parametre olarak string olarak tiklanacak WebElementin ismini alir.
+     *
+     * @param element
+     */
+    public void findElementAndClickFunction(String element) {
+        clickFunction(findWebElement(element));
     }
+
+    /**
+     * Parametre olarak ismi gonderilen WebElementi bulur ve value parametresini secilen WebElemente gonderir.
+     *
+     * @param element
+     * @param value
+     */
+    public void findElementAndSendKeysFunction(String element, String value) {
+        sendKeysFunction(findWebElement(element), value);
+    }
+
+    /**
+     * Bu metod steps classindan cagrilir.
+     * Parametre olarak seceneklerin oldugu WebElementListesinin adini ve secim kriterini string olarak alir.
+     * Secim parametresi sayi olursa index olarak degerlendirilir ve o indexli WebElement secilir.
+     * Parametre sayi degilse WebElementin texti ile karsilastirilir ve kapsayan WebElement secilir.
+     * @param listName
+     * @param secenek
+     */
+    public void findElementAndSelectOption(String listName, String secenek) {
+        selectOptionByString(findWebElementList(listName), secenek);
+    }
+
 }

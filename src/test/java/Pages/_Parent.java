@@ -15,6 +15,7 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class _Parent {
     /**
@@ -93,7 +94,9 @@ public class _Parent {
     public void selectOptionByString(List<WebElement> elementList, String str) {
         str = str.trim();
         if (girdiSayiMi(str)) {
-            clickFunction(selectOptions(elementList, Integer.parseInt(str)));
+            if (Integer.parseInt(str) < elementList.size()) {
+                clickFunction(selectOptions(elementList, Integer.parseInt(str)));
+            }
         } else {
             clickFunction(selectOptions(elementList, str));
         }
@@ -112,5 +115,28 @@ public class _Parent {
 
     public WebElement selectOptions(List<WebElement> elementList, int index) {
         return elementList.get(index);
+    }
+
+    public void verifyMyElementIsDisplayed(WebElement element) {
+        Set<String> sayfaidleri = driver.getWindowHandles();
+        String anasayfaidsi = driver.getWindowHandle();
+        for (String s : sayfaidleri) {
+            if (!s.equals(anasayfaidsi))
+                driver.switchTo().window(s);
+        }
+        Assert.assertTrue(element.isDisplayed(), "WebElement bulunamadi.");
+        driver.switchTo().window(anasayfaidsi);
+    }
+
+    public void verifyTheNumberOfItemsOnTheList(List<WebElement> elementList, int numberOfItems) {
+        System.out.println("Number of items= " + elementList.size());
+        Assert.assertTrue(elementList.size() == numberOfItems);
+    }
+
+    public void printToList(List<WebElement> webElmList) {
+        for (WebElement e : webElmList) {
+            System.out.println(e.getText());
+            System.out.println("------------------------------------------------------------");
+        }
     }
 }

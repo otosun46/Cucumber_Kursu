@@ -5,7 +5,7 @@ Feature: DataTable Functionalty
     When Enter username and password and click Login button
     Then User should login successfully
 
-  @SmokeTest
+  @Regression
   Scenario: Create a Exam
 
     When Click on the element in the left class
@@ -35,7 +35,7 @@ Feature: DataTable Functionalty
       | saveButton        |
 
     Then Success message shuld be diplayed
-
+  @Regression
   Scenario: Delete
     When Click on the element in the left class
       | entranceExams |

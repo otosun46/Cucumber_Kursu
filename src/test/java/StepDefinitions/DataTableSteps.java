@@ -85,9 +85,7 @@ public class DataTableSteps {
             formContent.findElementAndClickFunction(elementsClickAndSelectIndex.get(i).get(0));
             formContent.findElementAndSelectOption("selectDayOfMondy", elementsClickAndSelectIndex.get(i).get(1));
 //            formContent.selectDayOfMondy(elementsClickAndSelectIndex.get(i).get(1));
-
         }
-
     }
 
     @When("^User delete the Exam\"([^\"]*)\"$")

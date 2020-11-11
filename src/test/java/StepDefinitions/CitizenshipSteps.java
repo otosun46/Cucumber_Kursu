@@ -5,10 +5,13 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.LeftNav;
+import Utilities.ExcelUtility;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.util.List;
 
 public class CitizenshipSteps {
     LeftNav leftNav=new LeftNav();
@@ -39,4 +42,31 @@ public class CitizenshipSteps {
     public void clickOnCloseButton() {
         dialogContent.findElementAndClickFunction("closeDialog");
     }
+
+    @When("^User create ctizenship with ApachePOI$")
+    public void userCreateCtizenshipWithApachePOI() {
+        List<List<String>> gelenList= ExcelUtility.getListData("src/main/resources/ApacheExcelUtility.xlsx","Sayfa1",2);
+        for (int i=0;i<gelenList.size();i++) {
+            dialogContent.findElementAndClickFunction("addButton");
+            dialogContent.findElementAndSendKeysFunction("nameInput", gelenList.get(i).get(0));
+            dialogContent.findElementAndSendKeysFunction("shortName",  gelenList.get(i).get(1));
+            dialogContent.findElementAndClickFunction("saveButton");
+            dialogContent.beklet(1500);
+        }
+    }
+
+    @Then("^Userdelete ctizenship with ApachiPOI$")
+    public void userdeleteCtizenshipWithApachiPOI() {
+        List<List<String>> gelenList= ExcelUtility.getListData("src/main/resources/ApacheExcelUtility.xlsx","Sayfa1",2);
+        for (int i=0;i<gelenList.size();i++) {
+            dialogContent.findElementAndSendKeysFunction("searchNameInput", gelenList.get(i).get(0));
+            dialogContent.findElementAndClickFunction("searchButton");
+
+            dialogContent.editAndDeleteFunction(gelenList.get(i).get(0), "delete");
+            dialogContent.findElementAndClickFunction("yesButton");
+            dialogContent.beklet(1500);
+        }
+
+    }
+
 }

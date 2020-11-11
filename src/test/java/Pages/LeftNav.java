@@ -57,9 +57,8 @@ public class LeftNav extends _Parent {
 
     WebElement myElement;
 
-    public void findElementAndClickFunction(String elementName) {
-
-        switch (elementName) {
+    public WebElement findWebElement(String webElementName) {
+        switch (webElementName) {
             case "setupOne":
                 myElement = setupOne;
                 break;
@@ -106,8 +105,26 @@ public class LeftNav extends _Parent {
                 break;
         }
 
-        clickFunction(myElement);
+        return myElement;
     }
 
+    /**
+     * Bu metod steps classtan calistirilacak parametre olarak string olarak tiklanacak WebElementin ismini alir.
+     *
+     * @param element
+     */
+    public void findElementAndClickFunction(String element) {
+        clickFunction(findWebElement(element));
+    }
+
+    /**
+     * Parametre olarak ismi gonderilen WebElementi bulur ve value parametresini secilen WebElemente gonderir.
+     *
+     * @param element
+     * @param value
+     */
+    public void findElementAndSendKeysFunction(String element, String value) {
+        sendKeysFunction(findWebElement(element), value);
+    }
 
 }

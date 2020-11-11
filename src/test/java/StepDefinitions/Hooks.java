@@ -4,6 +4,7 @@
 package StepDefinitions;
 
 import Utilities.Driver;
+import Utilities.ExcelUtility;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -41,7 +42,7 @@ public class Hooks {
                 e.printStackTrace();
             }
         }
-
+        ExcelUtility.exceleYaz(scenario,simdi, Driver.threadBrowserName.get());
         try{
             Thread.sleep(3000);
         }catch (InterruptedException e){
@@ -49,4 +50,5 @@ public class Hooks {
         }
         Driver.quitDriver();
     }
+
 }

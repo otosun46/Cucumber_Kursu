@@ -39,6 +39,7 @@ public class CountryCreateEditDeleteSteps {
 
     @When("^Delete all items of the list$")
     public void deleteAllItemsOfTheList() {
+        dialogContent.beklet(1500);
         dialogContent.deleteAllItemsOfList();
     }
 }

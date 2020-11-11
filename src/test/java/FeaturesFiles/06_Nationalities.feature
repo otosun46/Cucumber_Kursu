@@ -18,7 +18,7 @@ Feature: Nationalities functionality
     When User delete the "cafeish1"
     Then Success message shuld be diplayed
 
-
+  @Regression
     Scenario: Nationalities All functionality
 
       Then Create a Nationalities "cayish"
