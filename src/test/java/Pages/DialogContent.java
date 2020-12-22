@@ -337,7 +337,7 @@ public class DialogContent extends _Parent {
         List<WebElement> btnList = new ArrayList<>();
         beklet(100);
         for (WebElement e : nameList) {
-            beklet(300);
+            beklet(1000);
             clickFunction(deleteButtonList.get(0));
             clickFunction(yesButton);
             waitUntilVisible(alertdialog);

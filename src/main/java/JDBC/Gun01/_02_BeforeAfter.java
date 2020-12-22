@@ -46,4 +46,53 @@ public class _02_BeforeAfter {
         System.out.println(name);
 
     }
+    @Test
+    public void Test2() throws SQLException {
+        ResultSet rs=statement.executeQuery("select * from language");
+        rs.next();
+        String name=rs.getString(2);
+        System.out.println(name);
+
+        rs.next();
+        name=rs.getString(2);
+        System.out.println(name);
+
+        rs.next();
+        name=rs.getString(2);
+        System.out.println(name);
+    }
+
+    @Test
+    public void Test3() throws SQLException {
+        ResultSet rs=statement.executeQuery("select * from language");
+        rs.next();
+        String name=rs.getString("name");
+        System.out.println(name);
+
+        rs.next();
+        name=rs.getString("name");
+        System.out.println(name);
+
+        rs.previous();
+        name=rs.getString("name");
+        System.out.println(name);
+
+    }
+
+    @Test
+    public void Test4() throws SQLException {
+        ResultSet rs=statement.executeQuery("select * from language");
+        rs.absolute(2);
+        String name=rs.getString("name");
+        System.out.println(name);
+
+//        rs.next();
+//        name=rs.getString("name");
+//        System.out.println(name);
+//
+//        rs.next();
+//        name=rs.getString("name");
+//        System.out.println(name);
+
+    }
 }

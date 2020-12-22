@@ -20,8 +20,8 @@ import java.util.Set;
 public class _Parent {
     /**
      * Bu dosya diğer bütün page ler için ortak click ve sendkeys
-     * için nekleme, scroll ve clear gibi bütün işleleri tek yereden
-     * yapabilmek için eklendi.Bu class diğer pageler tarafından exten edilerek
+     * için bekleme, scroll ve clear gibi bütün işleleri tek yereden
+     * yapabilmek için eklendi.Bu class diğer pageler tarafından extends edilerek
      * kullanılacak.Böylece tüm pagelerdeki elemanların click ve sendkeys özelliği
      * hem bekleme hem scroll hem de clear özelliği kazanmış olacak.
      */

@@ -5,6 +5,7 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.LeftNav;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -43,4 +44,10 @@ public class CountrySteps {
     }
 
 
+    @And("^Navigate to cities page$")
+    public void navigateToCitiesPage() {
+        leftNav.findElementAndClickFunction("setupOne");
+        leftNav.findElementAndClickFunction("parameters");
+        leftNav.findElementAndClickFunction("cities");
+    }
 }

@@ -13,9 +13,9 @@ Feature: Calisma icin girilen kayitlari siler
 #      When Delete all items of the list
       Scenario: Delete all Item
       When Click on the element in the left class
-        | inventory |
-        | setupButtonUnderInventory        |
-        | ItemCategory |
+        | setupOne |
+        | parameters        |
+        | country |
       When Delete all items of the list
 
   Scenario Outline: Delete all option
@@ -27,7 +27,7 @@ Feature: Calisma icin girilen kayitlari siler
     When Delete all items of the list
 
     Examples:
-      | Sections     |
-      | citizenships |
-      | nationality  |
+#      | Sections     |
+#      | citizenships |
+#      | nationality  |
       | country      |

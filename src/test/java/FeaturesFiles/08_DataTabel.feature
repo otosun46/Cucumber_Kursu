@@ -41,7 +41,7 @@ Feature: DataTable Functionalty
     Then Click on the element in the content class
       | addButton |
     When User sending the keys in the dialog content class
-      | nameInput            | Senin |
+      | nameInput            | Senin1 |
       | codeInput            | Sn  |
       | integrationCodeInput | TE |
       | priorityInput        | 12500|
