@@ -16,7 +16,7 @@ Feature: DataTable Functionalty
     Then Click on the element in the content class
       | addButton |
     When User sending the keys in the dialog content class
-      | nameInput | Matematik10 |
+      | nameInput | Matematik11 |
 
     Then Click and Select options
       | academicPeriod |
@@ -24,7 +24,7 @@ Feature: DataTable Functionalty
       | gradeLevel     |
       | 2              |
       | documentType   |
-      | 2              |
+      | 1              |
 
     When Click "regStart" and "regStartInput1" and Send "11102021" Date options
     When Click "regEnd" and "regEndInput" and Send "11112022 " Date options
@@ -35,10 +35,10 @@ Feature: DataTable Functionalty
 
     Then Success message shuld be diplayed
 
-#  Scenario: Delete
-#    When Click on the element in the left class
-#      | entranceExams |
-#      | setup2        |
-#      | entranceExam2 |
-#    When User delete the Exam"Matematik7"
-#    Then Success message shuld be diplayed
+  Scenario: Delete
+    When Click on the element in the left class
+      | entranceExams |
+      | setup2        |
+      | entranceExam2 |
+    When User delete the Exam"Matematik11"
+    Then Success message shuld be diplayed
