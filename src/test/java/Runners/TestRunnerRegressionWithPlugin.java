@@ -21,7 +21,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 
 @CucumberOptions(
-        tags = {"@SmokeTest"},
+        tags = {"@SmokeTest1"},
         features = {"src/test/java/FeaturesFiles"},
         glue = {"StepDefinitions"},
         dryRun = false,

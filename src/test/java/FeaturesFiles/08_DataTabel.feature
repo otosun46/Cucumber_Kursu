@@ -4,7 +4,7 @@ Feature: DataTable Functionalty
     Given Navigate to basqar
     When Enter username and password and click Login button
     Then User should login successfully
-  @Regression
+  @SmokeTest1
   Scenario: Create Country
     And Click on the element in the left class
       | setupOne   |
@@ -18,7 +18,7 @@ Feature: DataTable Functionalty
     And Click on the element in the content class
       | saveButton |
     Then Success message shuld be diplayed
-
+  @SmokeTest1
   Scenario: Create a Nationalties
     And Click on the element in the left class
       | setupOne    |
@@ -32,7 +32,7 @@ Feature: DataTable Functionalty
     And Click on the element in the content class
       | saveButton |
     Then Success message shuld be diplayed
-  @Regression
+  @SmokeTest1
   Scenario: Create a Fee
     And Click on the element in the left class
       | setupOne   |
